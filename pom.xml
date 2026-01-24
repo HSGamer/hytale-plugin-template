@@ -8,22 +8,60 @@
     <artifactId>ExamplePlugin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>ExamplePlugin</name>
+    <description>Description of your plugin</description>
+    <url>https://your-plugin-website.com</url>
+
     <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+        <hytale.version>2026.01.22-6f8bdbdc4</hytale.version>
+        <java.version>25</java.version>
+
+        <pluginGroup>${project.groupId}</pluginGroup>
+        <mainClass>dev.hytalemodding.ExamplePlugin</mainClass>
+
+        <authorName>Your Name</authorName>
+        <authorEmail>your.email@example.com</authorEmail>
+        <authorUrl>https://your-website.com</authorUrl>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.hypixel.hytale</groupId>
-            <artifactId>HytaleServer-parent</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <contributors>
+        <contributor>
+            <name>${authorName}</name>
+            <email>${authorEmail}</email>
+            <url>${authorUrl}</url>
+        </contributor>
+    </contributors>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -34,4 +72,26 @@
             </resource>
         </resources>
     </build>
+
+    <repositories>
+        <!-- Hytale release repository -->
+        <repository>
+            <id>hytale-release</id>
+            <url>https://maven.hytale.com/release</url>
+        </repository>
+        <!-- Hytale pre-release repository -->
+        <repository>
+            <id>hytale-pre-release</id>
+            <url>https://maven.hytale.com/pre-release</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hypixel.hytale</groupId>
+            <artifactId>Server</artifactId>
+            <version>${hytale.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

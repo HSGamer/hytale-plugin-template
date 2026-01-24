@@ -1,13 +1,13 @@
 {
-  "Group": "${pluginGroup}",
+  "Group": "${plugin.group}",
   "Name": "${project.name}",
-  "Version": "${version}",
+  "Version": "${project.version}",
   "Description": "${project.description}",
   "Authors": [
     {
-      "Name": "${authorName}",
-      "Email": "${authorEmail}",
-      "Url": "${authorUrl}"
+      "Name": "${author.name}",
+      "Email": "${author.email}",
+      "Url": "${author.url}"
     }
   ],
   "Website": "${project.url}",
@@ -16,5 +16,5 @@
   "OptionalDependencies": {},
   "DisabledByDefault": false,
   "IncludesAssetPack": false,
-  "Main": "${mainClass}"
+  "Main": "${plugin.main}"
 }

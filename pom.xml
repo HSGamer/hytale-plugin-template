@@ -16,21 +16,21 @@
         <hytale.version>2026.01.22-6f8bdbdc4</hytale.version>
         <java.version>25</java.version>
 
-        <pluginGroup>${project.groupId}</pluginGroup>
-        <mainClass>dev.hytalemodding.ExamplePlugin</mainClass>
+        <plugin.group>${project.groupId}</plugin.group>
+        <plugin.main>dev.hytalemodding.ExamplePlugin</plugin.main>
 
-        <authorName>Your Name</authorName>
-        <authorEmail>your.email@example.com</authorEmail>
-        <authorUrl>https://your-website.com</authorUrl>
+        <author.name>Your Name</author.name>
+        <author.email>your.email@example.com</author.email>
+        <author.url>https://your-website.com</author.url>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <contributors>
         <contributor>
-            <name>${authorName}</name>
-            <email>${authorEmail}</email>
-            <url>${authorUrl}</url>
+            <name>${author.name}</name>
+            <email>${author.email}</email>
+            <url>${author.url}</url>
         </contributor>
     </contributors>
 

@@ -8,31 +8,12 @@
     <artifactId>ExamplePlugin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>ExamplePlugin</name>
-    <description>Description of your plugin</description>
-    <url>https://your-plugin-website.com</url>
-
     <properties>
         <hytale.version>2026.01.22-6f8bdbdc4</hytale.version>
         <java.version>25</java.version>
 
-        <plugin.group>${project.groupId}</plugin.group>
-        <plugin.main>dev.hytalemodding.ExamplePlugin</plugin.main>
-
-        <author.name>Your Name</author.name>
-        <author.email>your.email@example.com</author.email>
-        <author.url>https://your-website.com</author.url>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <contributors>
-        <contributor>
-            <name>${author.name}</name>
-            <email>${author.email}</email>
-            <url>${author.url}</url>
-        </contributor>
-    </contributors>
 
     <build>
         <plugins>
@@ -61,16 +42,22 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>io.github.projectunified</groupId>
+                <artifactId>hytale-manifest-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generateManifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <main>dev.hytalemodding.ExamplePlugin</main>
+                </configuration>
+            </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>manifest.json</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
     </build>
 
     <repositories>
